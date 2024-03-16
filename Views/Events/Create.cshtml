@@ -1,0 +1,56 @@
+﻿
+@{
+
+}
+<style>
+    .body-content {
+        margin-top: 0 !important;
+    }
+</style>
+<script>
+    let loai = {
+        pl: "Phúc lợi",
+        tb: "Thông báo",
+        tt: "Triệu tập",
+        mo: "Khách mời",
+    }
+    let thanhPhan = {
+        cb: "Công đoàn viên",
+        cs: "Cán sự công đoàn",
+        nu: "Nữ công đoàn viên",
+        co: "Con cán bộ đương chức",
+        ho: "Các con ở độ tuổi đi học",
+        tn: "Các con ở độ tuổi thiếu nhi",
+        cg: "Cựu giáo chức"
+    }
+    let col6 = { lg: 6 };
+    let info = {
+        Ten: new TextBox().caption("Tên sự kiện").required(),
+        BD: new DateBox().caption("Ngày bắt đầu").required().column(col6),
+        KT: new DateBox().caption("Ngày kết thúc").column(col6),
+        NoiDung: new MultiLineBox().caption("Nội dung"),
+    }
+    let ds = {
+        Loai: new ComboBox().caption("Loại").options(loai),
+        PhucLoi: new NumberBox().caption("Tiền phúc lợi"),
+        ThanhPhan: new ComboBox().caption("Thành phần").options(thanhPhan),
+
+    }
+    let frm = new SingleForm()
+        .title('SỰ KIỆN')
+        .comment("Hãy điền thông tin của sự kiện")
+        .parent(".body-content")
+        .action("/events/update")
+        //.groups([
+        //    { text: "", editors: info },
+        //    { text: "Danh sách", editors: ds },
+        //])
+        .controls(info)
+        .val({ Ten: "Phúc lợi 20/11", ThanhPhan: "cb", Loai: "pl" })
+
+    ds.Loai.change = function (v) {
+        ds.PhucLoi.show(v == "pl")
+    }
+
+
+</script>

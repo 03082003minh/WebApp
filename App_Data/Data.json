@@ -1,0 +1,32 @@
+﻿{
+  "Đồ uống": {
+    "Coffee": [
+      {
+        "Name": "Nâu",
+        "Price": 30000
+      },
+      {
+        "Name": "Đen",
+        "Price": 25000
+      }
+    ],
+    "Sinh tố": [
+      {
+        "Name": "Bơ",
+        "Price": 40000
+      },
+      {
+        "Name": "Mãng cầu",
+        "Price": 45000
+      }
+    ]
+  },
+  "Đồ ăn": {
+    "Ăn vặt": [
+      {
+        "Name": "Hướng dương",
+        "Price": 10000
+      }
+    ]
+  }
+}

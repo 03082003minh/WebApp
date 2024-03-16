@@ -1,0 +1,48 @@
+﻿@{
+    Config.ApplicationName = "HUONG CAFE";
+
+    var menu = Document.Parse(System.IO.File.ReadAllText(DB.Main.ConnectionString + "/Data.json"));
+}
+
+<style>
+    .body-content {
+    }
+</style>
+
+@foreach (var p in menu)
+{
+    var cater = Document.FromObject(p.Value);
+    <div>
+        <h2>@p.Key</h2>
+        <div class="row">
+            @foreach (var q in cater)
+            {
+                var items = cater.GetArray<DocumentList>(q.Key);
+                <div class="mt-6 col-md-4">
+                    <div class="card">
+                        <div>
+                            <h3>@q.Key</h3>
+                        </div>
+                        <table class="table">
+                            @foreach (Document e in items)
+                            {
+                                <tr>
+                                    <td>@e.GetString("Name")</td>
+                                    <td>@(e.GetValue<long>("Price") / 1000)K</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+<script>
+    Table.init();
+    Table.style.dark("thead");
+    Table.style.bordered();
+    Table.style.set('primary', 'tbody');
+
+</script>

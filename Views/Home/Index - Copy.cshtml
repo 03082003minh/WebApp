@@ -1,0 +1,172 @@
+﻿@{
+    Config.ApplicationName = "HUONG CAFE";
+    //Response.Redirect("/home/login");
+
+}
+
+<style>
+    .body-content {
+    }
+</style>
+
+<div id="horiz-menu" class="mb-4 justify-content-center">
+    <a>Action</a>
+    <a>Link</a>
+    <a>Profile</a>
+    <a>Disabled</a>
+</div>
+
+<div class="card mb-6">
+    <div>
+        <h2>Table</h2>
+        <div style="overflow-x: auto">
+            <table class="mb-0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Noi dung</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Item #1</td>
+                        <td>Vũ Song Tùng</td>
+                        <td><a href="#" onclick="test()">nhấn vào đây</a></td>
+                    </tr>
+                    <tr>
+                        <td>Item #2</td>
+                        <td>Vũ Thái Bình</td>
+                        <td><a href="#" onclick="test()">nhấn vào đây</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div>
+        <h2>Accordion</h2>
+        <div class="accordion">
+            <div>
+                <span>Item #1</span>
+                <strong>Noi dung</strong> absabsc abcabsc
+            </div>
+            <div>
+                <span>Item #2</span>
+                <strong>Noi dung</strong>
+                <div>
+                    <a href="#" onclick="test()">nhấn vào đây</a>
+                </div>
+            </div>
+            <div>
+                <span>Item #3</span>
+                <strong>Noi dung</strong>
+                <div>
+                    <a href="#" onclick="test()">nhấn vào đây</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Table.init();
+    Table.style.dark("thead");
+    Table.style.bordered();
+    Table.style.set('warning', 'tbody');
+
+    NavMenu.init().pills()
+
+    function test() {
+        dialog.ask("Thử dialog", null, () => {
+            new Toast().comment("ok").mode("primary").show(3);
+            setTimeout(() => new Toast().text("Không tìm thấy").mode("danger").show(), 2000);
+        })
+    }
+</script>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div></div>
+            <div>
+                <h1>ASP.NET</h1>
+                <div id="main-content"></div>
+            </div>
+            <div><a href="#" onclick="open_form()" class="btn btn-primary btn-lg">Learn more &raquo;</a></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let roles = {
+        admin: "Quản trị hệ thống",
+        user: "Người dùng"
+    }
+    let frm = {
+        //Role: new SingleChoiceBox().caption("Role").options(roles).val("admin"),
+        //_id: new TextBox().caption("User name").comment('Enter').val("Vu Song Tung"),
+        //Password: new PasswodBox().caption("Password").comment('Enter'),
+        //ml: new MultiLineBox().caption("Multiline").comment('Enter').val("abc\ndef"),
+        //ri: new RichTextBox().caption("Richtext").comment('Enter').val("<h1>HELLO</h1>"),
+        Phone: new PhoneBox().caption("Phone").nullable(),
+        Keep: new TimeBox().caption("Remember me").required(),
+    }
+    function open_form() {
+        //toast.message("abc")
+        //dialog.message("Bạn có muốn đi ngủ không", null, () => { })
+        //$form().init("Đăng nhập")
+        //    .add("HoTen", "input", "Tên đăng nhập")
+        //    .add("Password", "passwpord", "Mật khẩu")
+        //    .modal()
+        //    .accept("", v => {})
+
+        new EditorDialog(frm).show();
+
+    }
+</script>
+
+<div class="row">
+    <div class="mt-6 col-md-4">
+        <div class="card">
+            <div>
+                <h2>Getting started</h2>
+            </div>
+            <div>
+                <p>
+                    ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+                    a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+                    is an ideal platform for building RESTful applications on the .NET Framework.
+                </p>
+            </div>
+            <div>
+                <a class="btn btn-secondary" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a>
+            </div>
+        </div>
+    </div>
+    <div class="mt-6 col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h2>Get more libraries</h2>
+            </div>
+            <div class="card-body">
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-secondary" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="mt-6 col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h2>Web Hosting</h2>
+            </div>
+            <div class="card-body">
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-secondary" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+</div>

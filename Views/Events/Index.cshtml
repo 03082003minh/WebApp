@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Events";
+    var lst = DB.Events.SelectAll();
+}
+
+<h3 class="fw-bold">CÁC SỰ KIỆN</h3>
+
+<div id="event-list">
+    @foreach (var e in lst)
+    {
+        <div class="card">
+            <div><h4>@e.Ten</h4></div>
+            <div>
+
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    Grid.column(".card", { lg: 4 })
+</script>

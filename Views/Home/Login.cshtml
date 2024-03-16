@@ -1,0 +1,48 @@
+﻿<html>
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+
+}
+@HtmlHeadRazor.Help("Login")
+<body class="bg-light">
+
+    <div class="row">
+        <div id="main-content">
+
+        </div>
+    </div>
+    <script>
+        let roles = {
+            NhanVien: "Nhân viên",
+            Admin: "Quản trị hệ thống",
+        }
+        let ed = {
+            Role: new SingleChoiceBox().caption("Quyền truy cập").options(roles),
+            SoDT: new PhoneBox().caption("Số điện thoại").required().comment("Nhập số điện thoại"),
+            Password: new PasswodBox().caption("Mật khẩu").comment('Nhập mật khẩu'),
+            Keep: new CheckBox().caption("Tự động đăng nhập cho lần sau"),
+        }
+        let frm = new SingleForm("#main-content")
+            .title('@(new HtmlString(Config.ApplicationName))')
+            .comment("Hãy điền thông tin người dùng")
+            .controls(ed)
+            .val({ Role: "NhanVien", Keep: 1, SoDT: "0989154248" })
+            .accept("ĐĂNG NHẬP", v => {
+                redirect("/home")
+            })
+
+        ed.Password.show(0);
+        ed.Role.change = function (v) {
+            let ad = v == "Admin";
+            ed.Password.show(ad);
+            ed.SoDT.show(!ad);
+        }
+
+        ed.SoDT.change = function (v) {
+
+        }
+    </script>
+
+</body>
+</html>

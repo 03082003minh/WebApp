@@ -1,0 +1,54 @@
+﻿{
+  "CapCD": {
+    "TLD": 1,
+    "Bo": 2,
+    "DH": 3,
+    "CDBP": 4,
+    "TCD": 5
+  },
+  "CVCD": {
+    "TCD": {
+      "Tổ trưởng": 21,
+      "Phó tổ trưởng": 22
+    },
+    "CDBP": {
+      "Chủ tịch": 11,
+      "Phó chủ tịch": 12,
+      "Ủy viên BCH": 13
+    }
+  },
+
+  "CVCQ": {
+    "Hiệu trưởng": 1,
+    "Phó Hiệu trưởng": 2,
+    "Chủ tịch HĐ Trường": 2,
+    "Trưởng Khoa": 3,
+    "GĐ Trung tâm": 3,
+    "Trưởng Văn phòng": 3,
+    "Phó Trưởng Khoa": 4,
+    "PGĐ Trung tâm": 4,
+    "Phó Trưởng Văn phòng": 4
+  },
+
+  "CVD": {
+    "BT Đảng ủy": 1,
+    "PBT Đảng ủy": 2,
+    "Đảng ủy viên": 3,
+    "BT chi bộ": 4,
+    "PBT chi bộ": 5,
+    "Chi ủy": 6
+  },
+
+  "DH": {
+    "CDV": { "Ten": "Đoàn viên CĐXS" },
+    "TCD": { "Ten": "Tổ CĐ xuất sắc" },
+    "CDBP": { "Ten": "CĐBP xuất sắc" }
+  },
+  "HT": {
+    "CDV": { "Ten": "Đoàn viên CĐXS" },
+    "GK": { "Ten": "Giấy khen của BCH CĐ ĐH" },
+    "BK": { "Ten": "Bằng khen BCH CĐ GDVN" },
+    "TL": { "Ten": "Bằng khen của TLĐ" },
+    "LD": { "Ten": "Bằng lao động sáng tạo" }
+  }
+}

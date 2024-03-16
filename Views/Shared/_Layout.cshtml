@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+
+@{
+    //var vmenuState = "toggled";
+    var vmenuState = "";
+    var user = Model as User;
+}
+
+@HtmlHeadRazor.Help((string)ViewBag.Title)
+
+<body class="bg-light">
+    <div id="__next">
+        <div id="wrapper-content">
+
+            <div class="navbar navbar-vertical">
+                <div class="">
+                    <a class="navbar-brand" href="/">@Config.ApplicationName</a>
+                </div>
+                <div id="left-menu">
+                    <ul>
+                        <li><div>DRINK</div></li>
+                        <li><a class="diamond" href="/home/index?id=coffee">Coffee</a></li>
+                        <li><a class="cup" href="/home/index?id=sinh-to">Sinh to</a></li>
+                    </ul>
+                    <ul>
+                        <li><div>EAT</div></li>
+                        <li><a class="" href="/home/index?id=coffee">Huong duong</a></li>
+                        <li><a class="" href="/home/index?id=sinh-to">Banh ngot</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="navbar navbar-horizotal navbar-top">
+                <nav class="d-flex justify">
+                    <div id="left-banner-content" class="d-flex v-center">
+                        <a class="nav-toggle" data-toggle="@vmenuState" data-target="#wrapper-content">
+                            <svg class="bars icon" />
+                        </a>
+                    </div>
+
+                    <div class="ms-lg-3 d-none d-md-none d-lg-block">
+                        <script>var search = { show: 0, key: 0, text: 0 }</script>
+                        <form id="form-search" class="d-flex align-items-center" onsubmit="return false">
+                            <input placeholder="tìm kiếm ..." type="search" name="search" class="form-control">
+                        </form>
+                    </div>
+                    <div id="right-banner-content" class="d-flex v-center">
+                        @if (user == null)
+                        {
+                            <div>
+                                <a class="btn btn-warning" href="/home/login">login</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div id="toolbar" class="d-flex justify-content-end">
+                                <a class="rounded-circle toolbar-item" href="/home">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </div>
+                            <div class="dropdown mx-3">
+                                <a href="#">
+                                    <div class="rounded-circle toolbar-item btn-primary avatar avatar-indicators avatar-online">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </a>
+                                <div id="dropdownUser" class="dropdown-menu-right">
+                                    <div class="my-1" style="text-align:center">
+                                        <h4>Lớp 6A3</h4>
+                                        <h6>Trường THCS Ngô Gia Tự</h6>
+                                    </div>
+                                    <a class="" href="/me?view=account"><i class="fa fa-shield"></i>Bảo mật tài khoản</a>
+                                    <a class="menu-seperator" href="/home?view=logout"><i class="fa fa-sign-out"></i> Đăng xuất</a>
+                                </div>
+
+                                <div id="first" class="dropdown mx-0">
+                                    <a><svg class="dots icon" /></a>
+                                    <div class="dropdown-menu-right">
+                                        <a>Item 1</a>
+                                        <a>Item 2</a>
+                                        <a>Item 3</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </nav>
+            </div>
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/_components.js"></script>
+</body>
+</html>
